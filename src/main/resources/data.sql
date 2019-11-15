@@ -1,0 +1,7 @@
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(2, 'Smith', 'Beaz', 'A+', '9876543210', 'N', '1994-11-22', '87654320');
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(1, 'Somnath', 'Musib', 'A+', '9876543210', 'N', '1994-10-10', '87654320');
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(3, 'Pisan', 'Catley', 'A+', '9876543210', 'N', '1994-01-09', '87654320');
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(4, 'Rika', 'Hood', 'A+', '9876543210', 'N', '1995-09-08', '87654320');
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(5, 'Tiya', 'Tesan', 'A+', '9876543210', 'N', '1994-10-11', '87654320');
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(6, 'Jack', 'Tegan', 'A+', '9876543210', 'N', '1994-12-12', '87654320');
+insert into donor(donor_Id, first_Name, last_Name, blood_Group, contact_No, is_First_Time_Donor, date_Of_Birth, emergency_Contact_No) values(7, 'John', 'Lonely', 'A+', '9876543210', 'N', '1994-07-04', '87654320');
