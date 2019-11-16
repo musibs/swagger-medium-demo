@@ -1,0 +1,368 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Donor Management API",
+    "version": "0.0.1-SNAPSHOT",
+    "title": "Spring Boot Rest API",
+    "contact": {
+      "name": "Somnath Musib",
+      "url": "medium.com/codefountain",
+      "email": "codefountain@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "donor-controller",
+      "description": "Donor Controller"
+    }
+  ],
+  "paths": {
+    "/api/donors": {
+      "get": {
+        "tags": [
+          "donor-controller"
+        ],
+        "summary": "View all donors",
+        "operationId": "getDonorsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved all donors",
+            "schema": {
+              "$ref": "#/definitions/Iterable"
+            }
+          },
+          "401": {
+            "description": "You are not authorized to view the resource"
+          },
+          "403": {
+            "description": "Accessing the resource you were trying to reach is forbidden"
+          },
+          "404": {
+            "description": "The resource you were trying to reach is not found"
+          },
+          "500": {
+            "description": "Application failed to process the request"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "donor-controller"
+        ],
+        "summary": "Create a new donor",
+        "operationId": "createDonorUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "donor",
+            "description": "donor",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Donor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully created a new donor",
+            "schema": {
+              "$ref": "#/definitions/ResponseEntity"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "You are not authorized to view the resource"
+          },
+          "403": {
+            "description": "Accessing the resource you were trying to reach is forbidden"
+          },
+          "404": {
+            "description": "The resource you were trying to reach is not found"
+          },
+          "500": {
+            "description": "Application failed to process the request"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "donor-controller"
+        ],
+        "summary": "Update a donor information",
+        "operationId": "UpdateDonorUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "donor",
+            "description": "donor",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Donor"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully updated donor information",
+            "schema": {
+              "$ref": "#/definitions/ResponseEntity"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "You are not authorized to view the resource"
+          },
+          "403": {
+            "description": "Accessing the resource you were trying to reach is forbidden"
+          },
+          "404": {
+            "description": "The resource you were trying to reach is not found"
+          },
+          "500": {
+            "description": "Application failed to process the request"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/donors/{id}": {
+      "get": {
+        "tags": [
+          "donor-controller"
+        ],
+        "summary": "Retrieve specific donor with the supplied donor id",
+        "operationId": "getDonorUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the donor with the supplied id",
+            "schema": {
+              "$ref": "#/definitions/ResponseEntity"
+            }
+          },
+          "401": {
+            "description": "You are not authorized to view the resource"
+          },
+          "403": {
+            "description": "Accessing the resource you were trying to reach is forbidden"
+          },
+          "404": {
+            "description": "The resource you were trying to reach is not found"
+          },
+          "500": {
+            "description": "Application failed to process the request"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "donor-controller"
+        ],
+        "summary": "Deletes specific donor with the supplied donor id",
+        "operationId": "deleteUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully deletes the specific donor"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "You are not authorized to view the resource"
+          },
+          "403": {
+            "description": "Accessing the resource you were trying to reach is forbidden"
+          },
+          "404": {
+            "description": "The resource you were trying to reach is not found"
+          },
+          "500": {
+            "description": "Application failed to process the request"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Donor": {
+      "type": "object",
+      "properties": {
+        "bloodGroup": {
+          "type": "string"
+        },
+        "contactNo": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date"
+        },
+        "donorId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "emergencyContactNo": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "firstTimeDonor": {
+          "type": "boolean"
+        },
+        "lastName": {
+          "type": "string"
+        }
+      },
+      "title": "Donor"
+    },
+    "Iterable": {
+      "type": "object",
+      "title": "Iterable"
+    },
+    "Iterable«Donor»": {
+      "type": "object",
+      "title": "Iterable«Donor»"
+    },
+    "ResponseEntity": {
+      "type": "object",
+      "properties": {
+        "body": {
+          "type": "object"
+        },
+        "statusCode": {
+          "type": "string",
+          "enum": [
+            "100 CONTINUE",
+            "101 SWITCHING_PROTOCOLS",
+            "102 PROCESSING",
+            "103 CHECKPOINT",
+            "200 OK",
+            "201 CREATED",
+            "202 ACCEPTED",
+            "203 NON_AUTHORITATIVE_INFORMATION",
+            "204 NO_CONTENT",
+            "205 RESET_CONTENT",
+            "206 PARTIAL_CONTENT",
+            "207 MULTI_STATUS",
+            "208 ALREADY_REPORTED",
+            "226 IM_USED",
+            "300 MULTIPLE_CHOICES",
+            "301 MOVED_PERMANENTLY",
+            "302 FOUND",
+            "302 MOVED_TEMPORARILY",
+            "303 SEE_OTHER",
+            "304 NOT_MODIFIED",
+            "305 USE_PROXY",
+            "307 TEMPORARY_REDIRECT",
+            "308 PERMANENT_REDIRECT",
+            "400 BAD_REQUEST",
+            "401 UNAUTHORIZED",
+            "402 PAYMENT_REQUIRED",
+            "403 FORBIDDEN",
+            "404 NOT_FOUND",
+            "405 METHOD_NOT_ALLOWED",
+            "406 NOT_ACCEPTABLE",
+            "407 PROXY_AUTHENTICATION_REQUIRED",
+            "408 REQUEST_TIMEOUT",
+            "409 CONFLICT",
+            "410 GONE",
+            "411 LENGTH_REQUIRED",
+            "412 PRECONDITION_FAILED",
+            "413 PAYLOAD_TOO_LARGE",
+            "413 REQUEST_ENTITY_TOO_LARGE",
+            "414 URI_TOO_LONG",
+            "414 REQUEST_URI_TOO_LONG",
+            "415 UNSUPPORTED_MEDIA_TYPE",
+            "416 REQUESTED_RANGE_NOT_SATISFIABLE",
+            "417 EXPECTATION_FAILED",
+            "418 I_AM_A_TEAPOT",
+            "419 INSUFFICIENT_SPACE_ON_RESOURCE",
+            "420 METHOD_FAILURE",
+            "421 DESTINATION_LOCKED",
+            "422 UNPROCESSABLE_ENTITY",
+            "423 LOCKED",
+            "424 FAILED_DEPENDENCY",
+            "425 TOO_EARLY",
+            "426 UPGRADE_REQUIRED",
+            "428 PRECONDITION_REQUIRED",
+            "429 TOO_MANY_REQUESTS",
+            "431 REQUEST_HEADER_FIELDS_TOO_LARGE",
+            "451 UNAVAILABLE_FOR_LEGAL_REASONS",
+            "500 INTERNAL_SERVER_ERROR",
+            "501 NOT_IMPLEMENTED",
+            "502 BAD_GATEWAY",
+            "503 SERVICE_UNAVAILABLE",
+            "504 GATEWAY_TIMEOUT",
+            "505 HTTP_VERSION_NOT_SUPPORTED",
+            "506 VARIANT_ALSO_NEGOTIATES",
+            "507 INSUFFICIENT_STORAGE",
+            "508 LOOP_DETECTED",
+            "509 BANDWIDTH_LIMIT_EXCEEDED",
+            "510 NOT_EXTENDED",
+            "511 NETWORK_AUTHENTICATION_REQUIRED"
+          ]
+        },
+        "statusCodeValue": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "ResponseEntity"
+    }
+  }
+}

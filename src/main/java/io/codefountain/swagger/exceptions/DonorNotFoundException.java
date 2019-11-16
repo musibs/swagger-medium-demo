@@ -1,4 +1,4 @@
-package io.codefountain.swagger;
+package io.codefountain.swagger.exceptions;
 
 public class DonorNotFoundException extends RuntimeException {
 

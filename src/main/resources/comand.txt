@@ -1,0 +1,11 @@
+java -jar swagger-codegen-cli.jar generate
+-i C:\Somnath\Writing\Medium\docs\api-docs.json
+--api-package io.codefountain.swagger
+--model-package io.codefountain.swagger.client.model
+--invoker-package io.codefountain.swagger.client.invoker
+--group-id io.codefountain
+--artifact-id spring-swagger-codegen-api-client
+--artifact-version 0.0.1-SNAPSHOT
+-l spring
+-o C:\Somnath\Dev\Programming\Spring\donor-app-server
+--additional-properties dateLibrary=java8-localdatetime

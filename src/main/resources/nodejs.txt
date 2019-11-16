@@ -1,0 +1,4 @@
+java -jar swagger-codegen-cli.jar
+generate -i  C:\Somnath\Writing\Medium\docs\api-docs.json
+-l nodejs-server
+-o C:\Somnath\Dev\Programming\node
